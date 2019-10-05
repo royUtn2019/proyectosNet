@@ -23,7 +23,7 @@ namespace whatSappApi
             string Cod = lbCode.Text;
             string num = txtCelu.Text;
             string yourId = "oepYSyfvNESguvIRDvcUonJvZ2VyX2RvdF91dG5fYXRfZ21haWxfZG90X2NvbQ==";
-            string yourMobile = Cod + num;  //"+5491130378572";;
+            string yourMobile = Cod + num;
             string yourMessage = txtMsn.Text;
 
             try
