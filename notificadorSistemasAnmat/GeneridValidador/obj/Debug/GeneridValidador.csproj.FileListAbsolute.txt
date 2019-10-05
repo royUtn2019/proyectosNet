@@ -1,4 +1,0 @@
-C:\Users\Roderick- Rebecca\Documents\Visual Studio 2010\Projects\VerificarSistemasTraza\GeneridValidador\bin\Debug\GeneridValidador.dll
-C:\Users\Roderick- Rebecca\Documents\Visual Studio 2010\Projects\VerificarSistemasTraza\GeneridValidador\bin\Debug\GeneridValidador.pdb
-C:\Users\Roderick- Rebecca\Documents\Visual Studio 2010\Projects\VerificarSistemasTraza\GeneridValidador\obj\Debug\GeneridValidador.dll
-C:\Users\Roderick- Rebecca\Documents\Visual Studio 2010\Projects\VerificarSistemasTraza\GeneridValidador\obj\Debug\GeneridValidador.pdb
