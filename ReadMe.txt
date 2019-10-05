@@ -1,8 +1,7 @@
-﻿Para clonar un proyecto de GIT
-
+﻿/-----------------------------Para clonar un proyecto de GIT-------------------------------------/
 git clone https://github.com/usuarioGit/nombreProyecto
 
-
+/------------------------------Para agregar algo al git-------------------------------------------/
 
 Para agregar algo al git
 te ubicas en el directorio donde esta la carpeta (lo que hacemos siempre). Y debes consultar el estado del repositorio usando git status.
@@ -17,8 +16,7 @@ Luego tecleas git remote -u origin master
 
 Luego tecleas git push
 
-
-Git: borrar archivos/carpetas del repositorio
+/---------------------------------Borrar archivos/carpetas del repositorio---------------------------------------------------------------/
 
 1.A Si quieres eliminar un archivo:
 
@@ -37,7 +35,7 @@ Git: borrar archivos/carpetas del repositorio
     git push
 
 
-comitear cambios al git
+/------------------------------------Comitear cambios al git------------------------------------------------------------/
 
 Te ubicas en la carpeta donde esta el cambio con CMD y verificas el estado de Git
     git status
