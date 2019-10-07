@@ -445,7 +445,7 @@
             // checkVade
             // 
             this.checkVade.BackColor = System.Drawing.Color.Transparent;
-            this.checkVade.Image = ((System.Drawing.Image)(resources.GetObject("checkVade.Image")));
+            this.checkVade.Image = global::VerificarSistemasTraza.Properties.Resources.check1;
             this.checkVade.Location = new System.Drawing.Point(13, 216);
             this.checkVade.Name = "checkVade";
             this.checkVade.Size = new System.Drawing.Size(23, 23);
