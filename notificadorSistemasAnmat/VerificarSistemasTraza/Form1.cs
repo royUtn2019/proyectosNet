@@ -24,7 +24,8 @@ namespace VerificarSistemasTraza
        string urlFit = configuration.AppSettings.Settings["UrlFitoDefinitivo"].Value;
        string urlVet = configuration.AppSettings.Settings["UrlVeteDefinitivo"].Value; 
        string urlProdMed = configuration.AppSettings.Settings["UrlProdMedDefinitivo"].Value;
-       private string urlSass = configuration.AppSettings.Settings["UrlSassDefinitivo"].Value;
+       string urlSass = configuration.AppSettings.Settings["UrlSassDefinitivo"].Value;
+       string urlVade = configuration.AppSettings.Settings["UrlVademecum"].Value;
 
        const int DEFAULT_TIME = 2000;
        Thread t0;
@@ -32,7 +33,7 @@ namespace VerificarSistemasTraza
        Thread t2;
        Thread t3;
        Thread t4;
-       Thread t5;
+       Thread t5, t6;
 
        Screen screen = Screen.PrimaryScreen;
 
@@ -70,201 +71,48 @@ namespace VerificarSistemasTraza
             t5 = new Thread(inicializarProssSass);
             t5.Start();
 
+            t6 = new Thread(inicializarProssVademecum);
+            t6.Start();
             
         }
 
-
-       private void inicializarProssAnmat()
-       {
-           Thread.Sleep(100);
-           Invoke((MethodInvoker)(() => mostrarProcesandoAnmat()));
-           Thread.Sleep(DEFAULT_TIME);
-           if (InvokeRequired) Invoke(new Action(finishProcessAnmat));
-
-       }
-
-       private void inicializarProssSedronar()
-       {
-           Thread.Sleep(300);
-           Invoke((MethodInvoker)(() => mostrarProcesandoSedro()));
-           Thread.Sleep(DEFAULT_TIME+100);
-           if (InvokeRequired) Invoke(new Action(finishProcessSedro));
-       }
-
-       private void inicializarProssFito()
-       {
-           Thread.Sleep(500);
-           Invoke((MethodInvoker)(() => mostrarProcesandoFito()));
-           Thread.Sleep(DEFAULT_TIME+200);
-           if (InvokeRequired) Invoke(new Action(finishProcessFito));
-
-       }
-
-       private void inicializarProssVete()
-       {
-           Thread.Sleep(700);
-           Invoke((MethodInvoker)(() => mostrarProcesandoVete()));
-           Thread.Sleep(DEFAULT_TIME+300);
-           if (InvokeRequired) Invoke(new Action(finishProcessVete));
-       }
-
-       private void inicializarProssProdMed()
-       {
-           Thread.Sleep(900);
-           Invoke((MethodInvoker)(() => mostrarProcesandoProdMed()));
-           Thread.Sleep(DEFAULT_TIME+400);
-           if (InvokeRequired) Invoke(new Action(finishProcessProdMed));
-       }
-
-       private void inicializarProssSass()
-       {
-           Thread.Sleep(1100);
-           Invoke((MethodInvoker)(() => mostrarProcesandoSass()));
-           Thread.Sleep(DEFAULT_TIME+500);
-           if (InvokeRequired) Invoke(new Action(finishProcessSass));
-       }
-
-       private void mostrarProcesandoAnmat()
-       {
-           p1.Visible = true;
-       }
-
-       private void mostrarProcesandoSedro()
-       {
-           p2.Visible = true;
-       }
-
-       private void mostrarProcesandoFito()
-       {
-           p3.Visible = true;
-       }
-
-       private void mostrarProcesandoVete()
-       {
-           p4.Visible = true;
-       }
-
-       private void mostrarProcesandoProdMed()
-       {
-           p5.Visible = true;
-       }
-
-       private void mostrarProcesandoSass()
+        private void sassProceso()
        {
            p6.Visible = true;
-       }
-
-       private void anmatProceso()
-       {
            try
-           {
-               p1.Visible = true;
-               if (verificar.integridadSistemas(urlAnmat))
-               {
-                   p1.Visible = false;
-                   string sistema = "Anmat ";
-                   checkAnmat.Visible = true;
-                   lbAnmat.Text = "El sistema de " + sistema + " funciona correctamente. ";
+            {
+                
+                if (verificar.integridadSistemas(urlSass))
+                {
+                    p6.Visible = false;
+                    const string sistema = "Sass ";
+                    checkSass.Visible = true;
+                    lbSass.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
 
-               }
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                p6.Visible = false;
+                const string sistema = "Sass ";
+                pErrorSass.Visible = true;
+                lbSass.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+            }
 
-           }
-           catch (Exception ex)
-           {
-               p1.Visible = false;
-               string sistema = "Anmat ";
-               pErrorAnmat.Visible = true;
-               lbAnmat.Text = "Error en " + sistema + ". " + ex.Message;
-           }
-       }
-
-       private void sedronarProceso()
-       {
-           try
-           {
-               p2.Visible = true;
-               if (verificar.integridadSistemas(urlSedr))
-               {
-                   p2.Visible = false;
-                   const string sistema = "Sedronar ";
-                   checkSedronar.Visible = true;
-                   lbSedronar.Text = "El sistema de " + sistema + " funciona correctamente. ";
-
-               }
-
-           }
-           catch (Exception ex)
-           {
-               p2.Visible = false;
-               const string sistema = "Sedronar ";
-               pErrorSe.Visible = true;
-               lbSedronar.Text = "Error en " + sistema + ". " + ex.Message;
-           }
-       }
-
-
-       private void fitoProceso()
-       {
-           try
-           {
-               p3.Visible = true;
-               if (verificar.integridadSistemas(urlFit))
-               {
-                   p3.Visible = false;
-                   const string sistema = "Fitosanitarios ";
-                   checkFito.Visible = true;
-                   lbFito.Text = "El sistema de " + sistema + " funciona correctamente. ";
-
-               }
-
-           }
-           catch (Exception ex)
-           {
-               p3.Visible = false;
-               const string sistema = "Fitosanitarios ";
-               pErrorFito.Visible = true;
-               lbFito.Text = "Error en " + sistema + ". " + ex.Message;
-           }
-       }
-
-
-       private void veteProceso()
-       {
-           try
-           {
-               p4.Visible = true;
-               if (verificar.integridadSistemas(urlVet))
-               {
-                   p4.Visible = false;
-                   const string sistema = "Veterinarios ";
-                   checkVete.Visible = true;
-                   lbVet.Text = "El sistema de " + sistema + " funciona correctamente. ";
-
-               }
-
-           }
-           catch (Exception ex)
-           {
-
-               p4.Visible = false;
-               const string sistema = "Veterinarios ";
-               pErrorVet.Visible = true;
-               lbVet.Text = "Error en " + sistema + ". " + ex.Message;
-           }
-
-       }
+            
+        }
         
-       private void prodMedProceso()
+        private void prodMedProceso()
         {
             try
             {
-                p5.Visible = true;
                 if (verificar.integridadSistemas(urlProdMed))
                 {
                     p5.Visible = false;
                     const string sistema = "Productos Medicos ";
                     checkProMed.Visible = true;
-                    lbProdMed.Text = "El sistema de " + sistema + " funciona correctamente. ";
+                    lbProdMed.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
 
                 }
                
@@ -274,83 +122,277 @@ namespace VerificarSistemasTraza
                 p5.Visible = false;
                 const string sistema = "Productos Medicos ";
                 pErrorProMe.Visible = true;
-                lbProdMed.Text = "Error en " + sistema + ". " + ex.Message;
+                lbProdMed.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
             }
 
 
             
         }
 
-       private void sassProceso()
+        private void veteProceso()
         {
             try
             {
-                p6.Visible = true;
-                if (verificar.integridadSistemas(urlSass))
+                if (verificar.integridadSistemas(urlVet))
                 {
-                    p6.Visible = false;
-                    const string sistema = "Sass ";
-                    checkSass.Visible = true;
-                    lbSass.Text = "El sistema de " + sistema + " funciona correctamente. ";
+                    p4.Visible = false;
+                    const string sistema = "Veterinarios ";
+                    checkVete.Visible = true;
+                    lbVet.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
+
+                }
+               
+            }
+            catch (Exception ex)
+            {
+
+                p4.Visible = false;
+                const string sistema = "Veterinarios ";
+                pErrorVet.Visible = true;
+                lbVet.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+            }
+            
+        }
+
+        private void fitoProceso()
+        {
+            try
+            {
+                if (verificar.integridadSistemas(urlFit))
+                {
+                    p3.Visible = false;
+                    const string sistema = "Fitosanitarios ";
+                    checkFito.Visible = true;
+                    lbFito.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
+
+                }
+               
+            }
+            catch (Exception ex) 
+            {
+                p3.Visible = false;
+                const string sistema = "Fitosanitarios ";
+                pErrorFito.Visible = true;
+                lbFito.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+            }
+        }
+
+        private void sedronarProceso()
+        {
+            try
+            {
+                if (verificar.integridadSistemas(urlSedr))
+                {
+                    p2.Visible = false;
+                    const string sistema = "Sedronar ";
+                    checkSedronar.Visible = true;
+                    lbSedronar.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
+
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                p2.Visible = false;
+                const string sistema = "Sedronar ";
+                pErrorSe.Visible = true;
+                lbSedronar.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+            }
+        }
+
+        private void anmatProceso()
+        {
+            try
+            {
+                if (verificar.integridadSistemas(urlAnmat))
+                {
+                    p1.Visible = false;
+                    string sistema = "Anmat ";
+                    
+                    checkAnmat.Visible = true;
+                    lbAnmat.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
+
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                p1.Visible = false;
+                string sistema = "Anmat ";
+                pErrorAnmat.Visible = true;
+                lbAnmat.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+            }
+        }
+
+        private void vademecumProceso()
+        {
+            p7.Visible = true;
+            try
+            {
+
+                if (verificar.integridadSistemas(urlVade))
+                {
+                    p7.Visible = false;
+                    const string sistema = "Vademecum ";
+                    checkVade.Visible = true;
+                    lbVade.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
 
                 }
 
             }
             catch (Exception ex)
             {
-                p6.Visible = false;
-                const string sistema = "Sass ";
-                pErrorSass.Visible = true;
-                lbSass.Text = "Erro en " + sistema + ". " + ex.Message;
+                p7.Visible = false;
+                const string sistema = "Vademecum ";
+                pErrorVade.Visible = true;
+                lbVade.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
             }
+        }
 
+        private void inicializarProssAnmat()
+        {
+            Thread.Sleep(100);
+            Invoke((MethodInvoker)(() => mostrarProcesandoAnmat()));
+            Thread.Sleep(DEFAULT_TIME);
+            if (InvokeRequired) Invoke(new Action(finishProcessAnmat));
 
         }
 
+        private void inicializarProssSedronar()
+        {
+            Thread.Sleep(300);
+            Invoke((MethodInvoker)(() => mostrarProcesandoSedro()));
+            Thread.Sleep(DEFAULT_TIME);
+            if (InvokeRequired) Invoke(new Action(finishProcessSedro)); 
+        }
 
-       private void finishProcessAnmat()
+        private void inicializarProssFito()
+        {
+            Thread.Sleep(500);
+            Invoke((MethodInvoker)(() => mostrarProcesandoFito()));
+            Thread.Sleep(DEFAULT_TIME);
+            if (InvokeRequired) Invoke(new Action(finishProcessFito));
+
+        }
+
+        private void inicializarProssVete()
+        {
+            Thread.Sleep(700);
+            Invoke((MethodInvoker)(() => mostrarProcesandoVete()));
+            Thread.Sleep(DEFAULT_TIME);
+            if (InvokeRequired) Invoke(new Action(finishProcessVete));
+        }
+
+        private void inicializarProssProdMed()
+        {
+            Thread.Sleep(900);
+            Invoke((MethodInvoker)(() => mostrarProcesandoProdMed()));
+            Thread.Sleep(DEFAULT_TIME);
+            if (InvokeRequired) Invoke(new Action(finishProcessProdMed));
+        }
+
+        private void inicializarProssSass()
+        {
+            Thread.Sleep(1100);
+            Invoke((MethodInvoker)(() => mostrarProcesandoSass()));
+            Thread.Sleep(DEFAULT_TIME);
+            if (InvokeRequired) Invoke(new Action(finishProcessSass));
+        }
+
+        private void inicializarProssVademecum()
+        {
+            Thread.Sleep(1300);
+            Invoke((MethodInvoker)(() => mostrarProcesandoVademecum()));
+            Thread.Sleep(DEFAULT_TIME);
+            if (InvokeRequired) Invoke(new Action(finishProcessVademecum));
+        }
+
+        private void mostrarProcesandoVademecum()
+        {
+            //vademecumProceso();
+            p7.Visible = true;
+        }
+
+        private void mostrarProcesandoAnmat()
+        {
+            p1.Visible = true;
+        }
+
+        private void mostrarProcesandoSedro()
+        {
+            p2.Visible = true;
+        }
+
+        private void mostrarProcesandoFito()
+        {
+            p3.Visible = true;
+        }
+
+        private void mostrarProcesandoVete()
+        {
+            p4.Visible = true;
+        }
+
+        private void mostrarProcesandoProdMed()
+        {
+            p5.Visible = true;
+        }
+
+        private void mostrarProcesandoSass()
+        {
+            p6.Visible = true;
+        }
+
+        private void finishProcessAnmat()
         {
             anmatProceso();
             p1.Visible = false;
             t0.Abort();
         }
 
-       private void finishProcessSedro()
+        private void finishProcessSedro()
         {
             sedronarProceso();
             p2.Visible = false;
             t1.Abort(); 
         }
 
-       private void finishProcessFito()
+        private void finishProcessFito()
         {
             fitoProceso();
             p3.Visible = false;
             t2.Abort();
         }
 
-       private void finishProcessVete()
+        private void finishProcessVete()
         {
             veteProceso();
             p4.Visible = false;
             t3.Abort();
         }
 
-       private void finishProcessProdMed()
+        private void finishProcessProdMed()
         {
             prodMedProceso();
             p5.Visible = false;
             t4.Abort();
         }
 
-       private void finishProcessSass()
+        private void finishProcessSass()
         {
             sassProceso();
             p6.Visible = false;
             t5.Abort();
         }
 
-       private void limpiarFormulario()
+        private void finishProcessVademecum()
+        {
+            vademecumProceso();
+            p7.Visible = false;
+            t6.Abort();
+        }
+
+        private void limpiarFormulario()
         {
             checkAnmat.Visible = false;
             checkSedronar.Visible = false;
@@ -374,52 +416,52 @@ namespace VerificarSistemasTraza
 
         }
 
-       private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
             Close();
         }
 
-       private void pBoxCancelar_MouseEnter(object sender, EventArgs e)
+        private void pBoxCancelar_MouseEnter(object sender, EventArgs e)
         {
             pBoxCancelar1.Visible = true;
             pBoxCancelar.Visible = false;
             Cursor = Cursors.Hand;
         }
 
-       private void pBoxCancelar_MouseLeave(object sender, EventArgs e)
+        private void pBoxCancelar_MouseLeave(object sender, EventArgs e)
         {
             pBoxCancelar1.Visible = true;
             pBoxCancelar.Visible = false;
             Cursor = Cursors.Arrow;
         }
 
-       private void pBoxCancelar1_MouseEnter(object sender, EventArgs e)
+        private void pBoxCancelar1_MouseEnter(object sender, EventArgs e)
         {
             pBoxCancelar1.Visible = true;
             pBoxCancelar.Visible = false;
             Cursor = Cursors.Hand;
         }
 
-       private void pBoxCancelar1_MouseLeave(object sender, EventArgs e)
+        private void pBoxCancelar1_MouseLeave(object sender, EventArgs e)
         {
             pBoxCancelar.Visible = true;
             pBoxCancelar1.Visible = false;
             Cursor = Cursors.Arrow;
         }
 
-       private void pBoxCancelar1_Click(object sender, EventArgs e)
+        private void pBoxCancelar1_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-       private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
             int Height = screen.Bounds.Width;
             int Width = screen.Bounds.Height;
-            Location = new Point(Height - (Size.Width+5), Width - (Size.Height+43));
+            Location = new Point(Height - Size.Width, Width - (Size.Height+40));
         }
 
-       public void ejecutarSonido()
+        public void ejecutarSonido()
         {
             sonido = new WindowsMediaPlayer();
             sonido.URL = Application.StartupPath + @"\Mp3\noti.mp3";

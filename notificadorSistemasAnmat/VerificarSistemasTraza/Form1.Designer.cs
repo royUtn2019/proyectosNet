@@ -58,6 +58,10 @@
             this.lbSass = new System.Windows.Forms.Label();
             this.pBoxCancelar = new System.Windows.Forms.PictureBox();
             this.pBoxCancelar1 = new System.Windows.Forms.PictureBox();
+            this.p7 = new System.Windows.Forms.PictureBox();
+            this.lbVade = new System.Windows.Forms.Label();
+            this.pErrorVade = new System.Windows.Forms.PictureBox();
+            this.checkVade = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pErrorAnmat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkAnmat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pErrorProMe)).BeginInit();
@@ -78,6 +82,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.p6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCancelar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.p7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pErrorVade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkVade)).BeginInit();
             this.SuspendLayout();
             // 
             // lbSedronar
@@ -343,7 +350,7 @@
             // 
             this.pErrorSass.BackColor = System.Drawing.Color.Transparent;
             this.pErrorSass.Image = global::VerificarSistemasTraza.Properties.Resources.cruz01;
-            this.pErrorSass.Location = new System.Drawing.Point(11, 187);
+            this.pErrorSass.Location = new System.Drawing.Point(12, 187);
             this.pErrorSass.Name = "pErrorSass";
             this.pErrorSass.Size = new System.Drawing.Size(23, 23);
             this.pErrorSass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -355,7 +362,7 @@
             // 
             this.p6.BackColor = System.Drawing.Color.Transparent;
             this.p6.Image = global::VerificarSistemasTraza.Properties.Resources.cargando;
-            this.p6.Location = new System.Drawing.Point(12, 187);
+            this.p6.Location = new System.Drawing.Point(11, 187);
             this.p6.Name = "p6";
             this.p6.Size = new System.Drawing.Size(27, 23);
             this.p6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -401,12 +408,60 @@
             this.pBoxCancelar1.MouseEnter += new System.EventHandler(this.pBoxCancelar1_MouseEnter);
             this.pBoxCancelar1.MouseLeave += new System.EventHandler(this.pBoxCancelar1_MouseLeave);
             // 
+            // p7
+            // 
+            this.p7.BackColor = System.Drawing.Color.Transparent;
+            this.p7.Image = global::VerificarSistemasTraza.Properties.Resources.cargando;
+            this.p7.Location = new System.Drawing.Point(11, 216);
+            this.p7.Name = "p7";
+            this.p7.Size = new System.Drawing.Size(27, 23);
+            this.p7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p7.TabIndex = 31;
+            this.p7.TabStop = false;
+            this.p7.Visible = false;
+            // 
+            // lbVade
+            // 
+            this.lbVade.AutoSize = true;
+            this.lbVade.BackColor = System.Drawing.Color.Transparent;
+            this.lbVade.Location = new System.Drawing.Point(49, 223);
+            this.lbVade.Name = "lbVade";
+            this.lbVade.Size = new System.Drawing.Size(13, 13);
+            this.lbVade.TabIndex = 32;
+            this.lbVade.Text = "  ";
+            // 
+            // pErrorVade
+            // 
+            this.pErrorVade.BackColor = System.Drawing.Color.Transparent;
+            this.pErrorVade.Image = global::VerificarSistemasTraza.Properties.Resources.cruz01;
+            this.pErrorVade.Location = new System.Drawing.Point(13, 216);
+            this.pErrorVade.Name = "pErrorVade";
+            this.pErrorVade.Size = new System.Drawing.Size(23, 23);
+            this.pErrorVade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pErrorVade.TabIndex = 33;
+            this.pErrorVade.TabStop = false;
+            this.pErrorVade.Visible = false;
+            // 
+            // checkVade
+            // 
+            this.checkVade.BackColor = System.Drawing.Color.Transparent;
+            this.checkVade.Image = ((System.Drawing.Image)(resources.GetObject("checkVade.Image")));
+            this.checkVade.Location = new System.Drawing.Point(13, 216);
+            this.checkVade.Name = "checkVade";
+            this.checkVade.Size = new System.Drawing.Size(23, 23);
+            this.checkVade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.checkVade.TabIndex = 34;
+            this.checkVade.TabStop = false;
+            this.checkVade.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::VerificarSistemasTraza.Properties.Resources._2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(344, 247);
+            this.ClientSize = new System.Drawing.Size(344, 253);
+            this.Controls.Add(this.lbVade);
+            this.Controls.Add(this.p7);
             this.Controls.Add(this.pBoxCancelar1);
             this.Controls.Add(this.pBoxCancelar);
             this.Controls.Add(this.lbSass);
@@ -434,6 +489,8 @@
             this.Controls.Add(this.pErrorSe);
             this.Controls.Add(this.checkSedronar);
             this.Controls.Add(this.lbSedronar);
+            this.Controls.Add(this.checkVade);
+            this.Controls.Add(this.pErrorVade);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.On;
@@ -466,6 +523,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.p6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxCancelar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.p7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pErrorVade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkVade)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -501,6 +561,10 @@
         private System.Windows.Forms.Label lbSass;
         private System.Windows.Forms.PictureBox pBoxCancelar;
         private System.Windows.Forms.PictureBox pBoxCancelar1;
+        private System.Windows.Forms.PictureBox p7;
+        private System.Windows.Forms.Label lbVade;
+        private System.Windows.Forms.PictureBox pErrorVade;
+        private System.Windows.Forms.PictureBox checkVade;
     }
 }
 
