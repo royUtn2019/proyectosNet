@@ -1,0 +1,5 @@
+C:\Users\Roderick- Rebecca\Desktop\proyectosNet\notificadorSistemasAnmat\GeneridValidador\bin\Debug\GeneridValidador.dll
+C:\Users\Roderick- Rebecca\Desktop\proyectosNet\notificadorSistemasAnmat\GeneridValidador\bin\Debug\GeneridValidador.pdb
+C:\Users\Roderick- Rebecca\Desktop\proyectosNet\notificadorSistemasAnmat\GeneridValidador\obj\Debug\GeneridValidador.dll
+C:\Users\Roderick- Rebecca\Desktop\proyectosNet\notificadorSistemasAnmat\GeneridValidador\obj\Debug\GeneridValidador.pdb
+C:\Users\Roderick- Rebecca\Desktop\proyectosNet\notificadorSistemasAnmat\GeneridValidador\obj\Debug\GeneridValidador.csprojResolveAssemblyReference.cache
