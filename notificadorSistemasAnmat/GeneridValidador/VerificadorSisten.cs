@@ -61,7 +61,7 @@ namespace GeneridValidador
                 }
                 else
                 {
-                    // Si fue otro error...
+                    throw new Exception("Detalle de error: \n" + ex.Message);
                 }
 
             }
