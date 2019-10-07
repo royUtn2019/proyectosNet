@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,13 +28,10 @@ namespace VerificarSistemasTraza
        string urlSass = configuration.AppSettings.Settings["UrlSassDefinitivo"].Value;
        string urlVade = configuration.AppSettings.Settings["UrlVademecum"].Value;
 
+       Sistema siste = new Sistema();
+       List<Sistema> listSis = new List<Sistema>();
        const int DEFAULT_TIME = 2000;
-       Thread t0;
-       Thread t1;
-       Thread t2;
-       Thread t3;
-       Thread t4;
-       Thread t5, t6;
+       Thread t0,t1,t2,t3,t4,t5, t6;
 
        Screen screen = Screen.PrimaryScreen;
 
@@ -46,6 +44,8 @@ namespace VerificarSistemasTraza
             realizarTarea();
             timer1.Interval = 250000;
             timer1.Start();
+            
+            
         }
 
        #region procesos y eventos
@@ -73,179 +73,258 @@ namespace VerificarSistemasTraza
 
             t6 = new Thread(inicializarProssVademecum);
             t6.Start();
-            
+           
         }
 
-        private void sassProceso()
+
+       private void anmatProceso()
        {
+           p1.Visible = true;
+           siste = new Sistema();
+           try
+           {
+               if (verificar.integridadSistemas(urlAnmat))
+               {
+
+                   string sistema = "Anmat ";
+                   checkAnmat.Visible = true;
+                   lbAnmat.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
+                   
+
+               }
+
+           }
+           catch (Exception ex)
+           {
+               string sistema = "Anmat ";
+               pErrorAnmat.Visible = true;
+               lbAnmat.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+               siste.NombreSistema = sistema;
+               siste.Estado = false;
+               siste.Error = ex.Message;
+               listSis.Add(siste);
+           }
+       }
+
+
+       private void sedronarProceso()
+       {
+           p2.Visible = true;
+           siste = new Sistema();
+           try
+           {
+               if (verificar.integridadSistemas(urlSedr))
+               {
+                   const string sistema = "Sedronar ";
+                   checkSedronar.Visible = true;
+                   lbSedronar.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
+                   
+               }
+
+           }
+           catch (Exception ex)
+           {
+               const string sistema = "Sedronar ";
+               pErrorSe.Visible = true;
+               lbSedronar.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+               siste.NombreSistema = sistema;
+               siste.Estado = false;
+               siste.Error = ex.Message;
+               listSis.Add(siste);
+           }
+       }
+
+       private void fitoProceso()
+       {
+           p3.Visible = true;
+           siste = new Sistema();
+           try
+           {
+               if (verificar.integridadSistemas(urlFit))
+               {
+                   const string sistema = "Fitosanitarios ";
+                   checkFito.Visible = true;
+                   lbFito.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
+                   
+               }
+
+           }
+           catch (Exception ex)
+           {
+               const string sistema = "Fitosanitarios ";
+               pErrorFito.Visible = true;
+               lbFito.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+               siste.NombreSistema = sistema;
+               siste.Estado = false;
+               siste.Error = ex.Message;
+               listSis.Add(siste);
+           }
+       }
+       private void veteProceso()
+       {
+           siste = new Sistema();
+           p4.Visible = true;
+           try
+           {
+               if (verificar.integridadSistemas(urlVet))
+               {
+                   const string sistema = "Veterinarios ";
+                   checkVete.Visible = true;
+                   lbVet.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
+                   
+               }
+
+           }
+           catch (Exception ex)
+           {
+
+               const string sistema = "Veterinarios ";
+               pErrorVet.Visible = true;
+               lbVet.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+               siste.NombreSistema = sistema;
+               siste.Estado = false;
+               siste.Error = ex.Message;
+               listSis.Add(siste);
+           }
+
+       }
+
+
+       private void prodMedProceso()
+       {
+           siste = new Sistema();
+           p5.Visible = true;
+           try
+           {
+               if (verificar.integridadSistemas(urlProdMed))
+               {
+                   const string sistema = "Productos Medicos ";
+                   checkProMed.Visible = true;
+                   lbProdMed.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
+                   
+               }
+
+           }
+           catch (Exception ex)
+           {
+               const string sistema = "Productos Medicos ";
+               pErrorProMe.Visible = true;
+               lbProdMed.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+               siste.NombreSistema = sistema;
+               siste.Estado = false;
+               siste.Error = ex.Message;
+               listSis.Add(siste);
+           }
+
+       }
+       private void sassProceso()
+       {
+           siste = new Sistema();
            p6.Visible = true;
            try
             {
                 
                 if (verificar.integridadSistemas(urlSass))
                 {
-                    p6.Visible = false;
                     const string sistema = "Sass ";
                     checkSass.Visible = true;
                     lbSass.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
-
+                    
                 }
                
             }
             catch (Exception ex)
             {
-                p6.Visible = false;
                 const string sistema = "Sass ";
                 pErrorSass.Visible = true;
                 lbSass.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+                siste.NombreSistema = sistema;
+                siste.Estado = false;
+                siste.Error = ex.Message;
+                listSis.Add(siste);
             }
 
             
         }
+
         
-        private void prodMedProceso()
-        {
-            try
-            {
-                if (verificar.integridadSistemas(urlProdMed))
-                {
-                    p5.Visible = false;
-                    const string sistema = "Productos Medicos ";
-                    checkProMed.Visible = true;
-                    lbProdMed.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
-
-                }
-               
-            }
-            catch (Exception ex)
-            {
-                p5.Visible = false;
-                const string sistema = "Productos Medicos ";
-                pErrorProMe.Visible = true;
-                lbProdMed.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
-            }
-
-
-            
-        }
-
-        private void veteProceso()
-        {
-            try
-            {
-                if (verificar.integridadSistemas(urlVet))
-                {
-                    p4.Visible = false;
-                    const string sistema = "Veterinarios ";
-                    checkVete.Visible = true;
-                    lbVet.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
-
-                }
-               
-            }
-            catch (Exception ex)
-            {
-
-                p4.Visible = false;
-                const string sistema = "Veterinarios ";
-                pErrorVet.Visible = true;
-                lbVet.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
-            }
-            
-        }
-
-        private void fitoProceso()
-        {
-            try
-            {
-                if (verificar.integridadSistemas(urlFit))
-                {
-                    p3.Visible = false;
-                    const string sistema = "Fitosanitarios ";
-                    checkFito.Visible = true;
-                    lbFito.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
-
-                }
-               
-            }
-            catch (Exception ex) 
-            {
-                p3.Visible = false;
-                const string sistema = "Fitosanitarios ";
-                pErrorFito.Visible = true;
-                lbFito.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
-            }
-        }
-
-        private void sedronarProceso()
-        {
-            try
-            {
-                if (verificar.integridadSistemas(urlSedr))
-                {
-                    p2.Visible = false;
-                    const string sistema = "Sedronar ";
-                    checkSedronar.Visible = true;
-                    lbSedronar.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
-
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                p2.Visible = false;
-                const string sistema = "Sedronar ";
-                pErrorSe.Visible = true;
-                lbSedronar.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
-            }
-        }
-
-        private void anmatProceso()
-        {
-            try
-            {
-                if (verificar.integridadSistemas(urlAnmat))
-                {
-                    p1.Visible = false;
-                    string sistema = "Anmat ";
-                    
-                    checkAnmat.Visible = true;
-                    lbAnmat.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
-
-                }
-               
-            }
-            catch (Exception ex)
-            {
-                p1.Visible = false;
-                string sistema = "Anmat ";
-                pErrorAnmat.Visible = true;
-                lbAnmat.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
-            }
-        }
+        
 
         private void vademecumProceso()
         {
+            siste = new Sistema();
             p7.Visible = true;
             try
             {
 
                 if (verificar.integridadSistemas(urlVade))
                 {
-                    p7.Visible = false;
                     const string sistema = "Vademecum ";
                     checkVade.Visible = true;
                     lbVade.Text = "El sistema de " + sistema.ToUpper() + " funciona correctamente. ";
-
                 }
 
             }
             catch (Exception ex)
             {
-                p7.Visible = false;
                 const string sistema = "Vademecum ";
                 pErrorVade.Visible = true;
                 lbVade.Text = "Error en " + sistema.ToUpper() + ". " + ex.Message;
+                siste.NombreSistema = sistema;
+                siste.Estado = false;
+                siste.Error = ex.Message;
+                listSis.Add(siste);
+            }
+        }
+
+        private void enviarMsn(List<Sistema> sistemas)
+        {
+            if (sistemas.Count!= 0)
+            {
+                
+                string num = "+5491130378572";
+                string yourId = "oepYSyfvNESguvIRDvcUonJvZ2VyX2RvdF91dG5fYXRfZ21haWxfZG90X2NvbQ==";
+                string yourMobile = num;  //"+5491130378572";;
+
+                string t = null;
+                for (int i = 0; i < sistemas.Count; i++)
+                {
+                    if (i == sistemas.Count)
+                    {
+                        t = sistemas[i].NombreSistema;
+                    }
+                    else
+                    {
+                        t = t + sistemas[i].NombreSistema + ", ";
+                    }
+                    
+                }
+
+                
+                string yourMessage = "Por favor verificar integridad de los sistemas de Trazabilidad, hay sistemas caidos: /n" +t  + "/n";
+
+                try
+                {
+                    string url = "https://NiceApi.net/API";
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                    request.Method = "POST";
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    request.Headers.Add("X-APIId", yourId);
+                    request.Headers.Add("X-APIMobile", yourMobile);
+                    using (StreamWriter streamOut = new StreamWriter(request.GetRequestStream()))
+                    {
+                        streamOut.Write(yourMessage);
+                    }
+                    using (StreamReader streamIn = new StreamReader(request.GetResponse().GetResponseStream()))
+                    {
+                        Console.WriteLine(streamIn.ReadToEnd());
+                    }
+                }
+                catch (SystemException se)
+                {
+                    Console.WriteLine(se.Message);
+                }
+                Console.ReadLine();
             }
         }
 
@@ -309,85 +388,84 @@ namespace VerificarSistemasTraza
 
         private void mostrarProcesandoVademecum()
         {
-            //vademecumProceso();
+            vademecumProceso();
             p7.Visible = true;
         }
 
         private void mostrarProcesandoAnmat()
         {
+            anmatProceso();
             p1.Visible = true;
         }
 
         private void mostrarProcesandoSedro()
         {
+            sedronarProceso();
             p2.Visible = true;
         }
 
         private void mostrarProcesandoFito()
         {
+            fitoProceso();
             p3.Visible = true;
         }
 
         private void mostrarProcesandoVete()
         {
+            veteProceso();
             p4.Visible = true;
         }
 
         private void mostrarProcesandoProdMed()
         {
+            prodMedProceso();
             p5.Visible = true;
         }
 
         private void mostrarProcesandoSass()
         {
+            sassProceso();
             p6.Visible = true;
         }
 
         private void finishProcessAnmat()
         {
-            anmatProceso();
             p1.Visible = false;
             t0.Abort();
         }
 
         private void finishProcessSedro()
         {
-            sedronarProceso();
             p2.Visible = false;
             t1.Abort(); 
         }
 
         private void finishProcessFito()
         {
-            fitoProceso();
             p3.Visible = false;
             t2.Abort();
         }
 
         private void finishProcessVete()
         {
-            veteProceso();
             p4.Visible = false;
             t3.Abort();
         }
 
         private void finishProcessProdMed()
         {
-            prodMedProceso();
             p5.Visible = false;
             t4.Abort();
         }
 
         private void finishProcessSass()
         {
-            sassProceso();
             p6.Visible = false;
             t5.Abort();
         }
 
         private void finishProcessVademecum()
         {
-            vademecumProceso();
             p7.Visible = false;
             t6.Abort();
         }
@@ -418,6 +496,7 @@ namespace VerificarSistemasTraza
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            enviarMsn(listSis);
             Close();
         }
 

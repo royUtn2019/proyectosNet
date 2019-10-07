@@ -91,7 +91,7 @@
             // 
             this.lbSedronar.AutoSize = true;
             this.lbSedronar.BackColor = System.Drawing.Color.Transparent;
-            this.lbSedronar.Location = new System.Drawing.Point(49, 78);
+            this.lbSedronar.Location = new System.Drawing.Point(47, 78);
             this.lbSedronar.Name = "lbSedronar";
             this.lbSedronar.Size = new System.Drawing.Size(13, 13);
             this.lbSedronar.TabIndex = 1;
@@ -101,7 +101,7 @@
             // 
             this.lbAnmat.AutoSize = true;
             this.lbAnmat.BackColor = System.Drawing.Color.Transparent;
-            this.lbAnmat.Location = new System.Drawing.Point(49, 49);
+            this.lbAnmat.Location = new System.Drawing.Point(47, 49);
             this.lbAnmat.Name = "lbAnmat";
             this.lbAnmat.Size = new System.Drawing.Size(13, 13);
             this.lbAnmat.TabIndex = 15;
@@ -111,7 +111,7 @@
             // 
             this.lbFito.AutoSize = true;
             this.lbFito.BackColor = System.Drawing.Color.Transparent;
-            this.lbFito.Location = new System.Drawing.Point(49, 107);
+            this.lbFito.Location = new System.Drawing.Point(47, 107);
             this.lbFito.Name = "lbFito";
             this.lbFito.Size = new System.Drawing.Size(13, 13);
             this.lbFito.TabIndex = 16;
@@ -121,7 +121,7 @@
             // 
             this.lbVet.AutoSize = true;
             this.lbVet.BackColor = System.Drawing.Color.Transparent;
-            this.lbVet.Location = new System.Drawing.Point(49, 136);
+            this.lbVet.Location = new System.Drawing.Point(47, 136);
             this.lbVet.Name = "lbVet";
             this.lbVet.Size = new System.Drawing.Size(13, 13);
             this.lbVet.TabIndex = 17;
@@ -131,7 +131,7 @@
             // 
             this.lbProdMed.AutoSize = true;
             this.lbProdMed.BackColor = System.Drawing.Color.Transparent;
-            this.lbProdMed.Location = new System.Drawing.Point(49, 165);
+            this.lbProdMed.Location = new System.Drawing.Point(47, 165);
             this.lbProdMed.Name = "lbProdMed";
             this.lbProdMed.Size = new System.Drawing.Size(13, 13);
             this.lbProdMed.TabIndex = 18;
@@ -374,7 +374,7 @@
             // 
             this.lbSass.AutoSize = true;
             this.lbSass.BackColor = System.Drawing.Color.Transparent;
-            this.lbSass.Location = new System.Drawing.Point(49, 194);
+            this.lbSass.Location = new System.Drawing.Point(47, 194);
             this.lbSass.Name = "lbSass";
             this.lbSass.Size = new System.Drawing.Size(13, 13);
             this.lbSass.TabIndex = 28;
@@ -424,7 +424,7 @@
             // 
             this.lbVade.AutoSize = true;
             this.lbVade.BackColor = System.Drawing.Color.Transparent;
-            this.lbVade.Location = new System.Drawing.Point(49, 223);
+            this.lbVade.Location = new System.Drawing.Point(47, 223);
             this.lbVade.Name = "lbVade";
             this.lbVade.Size = new System.Drawing.Size(13, 13);
             this.lbVade.TabIndex = 32;
