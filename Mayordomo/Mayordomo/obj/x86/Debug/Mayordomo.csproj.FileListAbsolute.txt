@@ -1,0 +1,23 @@
+c:\users\roderick- rebecca\documents\visual studio 2010\Projects\Mayordomo\Mayordomo\bin\Debug\Mayordomo.exe
+c:\users\roderick- rebecca\documents\visual studio 2010\Projects\Mayordomo\Mayordomo\bin\Debug\Mayordomo.pdb
+c:\users\roderick- rebecca\documents\visual studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.Form1.resources
+c:\users\roderick- rebecca\documents\visual studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.Properties.Resources.resources
+c:\users\roderick- rebecca\documents\visual studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.csproj.GenerateResource.Cache
+c:\users\roderick- rebecca\documents\visual studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.exe
+c:\users\roderick- rebecca\documents\visual studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.pdb
+c:\users\roderick- rebecca\documents\visual studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Interop.WMPLib.dll
+c:\users\roderick- rebecca\documents\visual studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.csproj.ResolveComReference.cache
+C:\Users\Roderick- Rebecca\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.csprojResolveAssemblyReference.cache
+C:\Users\Roderick- Rebecca\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\bin\Debug\OpenPop.dll
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Interop.WMPLib.dll
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.csproj.ResolveComReference.cache
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.exe
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.pdb
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\bin\Debug\Mayordomo.exe
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\bin\Debug\Mayordomo.pdb
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\bin\Debug\OpenPop.dll
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.csprojResolveAssemblyReference.cache
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.Form1.resources
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.Properties.Resources.resources
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\obj\x86\Debug\Mayordomo.csproj.GenerateResource.Cache
+C:\Users\u61140\Documents\Visual Studio 2010\Projects\Mayordomo\Mayordomo\bin\Debug\Mayordomo.exe.config
