@@ -207,11 +207,11 @@ namespace Mayordomo
             notifyIcon1.ShowBalloonTip(30);*/
 
 
-            notifayMio(val, texto, tituloNotifay, cuerpoNotifay, 30);
+            notifayGeneric(val, texto, tituloNotifay, cuerpoNotifay, 30);
 
         }
 
-        private void notifayMio(Icon val, string texto, string tituloNotifay, string cuerpoNotifay, int i)
+        private void notifayGeneric(Icon val, string texto, string tituloNotifay, string cuerpoNotifay, int i)
         {
             notifyIcon1.Icon = val;
             notifyIcon1.Visible = true;
@@ -224,23 +224,30 @@ namespace Mayordomo
 
         private void mostrarNotificacionDeActualizacionPami(string autorPami, string pamiAsunto)
         {
+            string textoPami = "NUEVO MAIL PAMI";
+            string tituloNotifayPami = "Usted tiene nuevos mails de PAMI sin leer\n";
+            string cuerpoNotifay = "Recibio un Mail de:\n" + autorPami.ToUpper() + "\nAsunto:\n " + pamiAsunto.ToUpper() + "\nPor favor verifica tu bandeja de correo PAMI\nPuede ser un correo muy importante";
+            
+            
             Icon val = Properties.Resources.pami;
-            notifyIcon1.Icon = val;
-            notifyIcon1.Visible = true;
-            notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
-            notifyIcon1.Text = "NUEVO MAIL PAMI";
-            notifyIcon1.BalloonTipTitle = "Usted tiene nuevos mails de PAMI sin leer\n";
-            notifyIcon1.BalloonTipText = "Recibio un Mail de:\n" + autorPami.ToUpper() + "\nAsunto:\n " + pamiAsunto.ToUpper() + "\nPor favor verifica tu bandeja de correo PAMI\nPuede ser un correo muy importante";
-            notifyIcon1.ShowBalloonTip(30);
+           // notifyIcon1.Icon = val;
+            //notifyIcon1.Visible = true;
+            //notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+            //notifyIcon1.Text = "NUEVO MAIL PAMI";
+           // notifyIcon1.BalloonTipTitle = "Usted tiene nuevos mails de PAMI sin leer\n";
+           // notifyIcon1.BalloonTipText = "Recibio un Mail de:\n" + autorPami.ToUpper() + "\nAsunto:\n " + pamiAsunto.ToUpper() + "\nPor favor verifica tu bandeja de correo PAMI\nPuede ser un correo muy importante";
+           // notifyIcon1.ShowBalloonTip(30);
+
+            notifayGeneric(val, textoPami, tituloNotifayPami, cuerpoNotifay, 30);
         }
 
-        private void notifyIcon1_Click(object sender, EventArgs e)
+       /* private void notifyIcon1_Click(object sender, EventArgs e)
         {
             if (notifyIcon1.Text == "NUEVO MAIL GMAIL")
             {
                 
             }
-        }
+        }*/
        
     }
 }
