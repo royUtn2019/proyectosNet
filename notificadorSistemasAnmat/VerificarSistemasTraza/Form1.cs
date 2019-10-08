@@ -42,7 +42,7 @@ namespace VerificarSistemasTraza
             InitializeComponent();
             ejecutarSonido();
             realizarTarea();
-            timer1.Interval = 10000;
+            timer1.Interval = 250000;
             timer1.Start();
             
             
