@@ -301,7 +301,7 @@ namespace VerificarSistemasTraza
                 }
 
                 
-                string yourMessage = "Por favor verificar integridad de los sistemas de Trazabilidad, hay sistemas caidos: /n" +t  + "/n";
+                string yourMessage = "Por favor verificar integridad de los sistemas de Trazabilidad, hay sistemas caidos: \n" +t  + "\n";
 
                 try
                 {
