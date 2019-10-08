@@ -42,7 +42,7 @@ namespace VerificarSistemasTraza
             InitializeComponent();
             ejecutarSonido();
             realizarTarea();
-            timer1.Interval = 250000;
+            timer1.Interval = 10000;
             timer1.Start();
             
             
@@ -300,8 +300,8 @@ namespace VerificarSistemasTraza
                     
                 }
 
-                
-                string yourMessage = "Por favor verificar integridad de los sistemas de Trazabilidad, hay sistemas caidos: \n" +t  + "\n";
+                string t1 = t.Trim(new Char[] {' ', ','});
+                string yourMessage = "Por favor verificar integridad de los sistemas de Trazabilidad, hay sistemas caidos: \n" +t1  + "\n";
 
                 try
                 {
